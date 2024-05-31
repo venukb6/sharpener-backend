@@ -17,6 +17,4 @@ app.use((req, res, next)=>{
 
 
 
-const server = http.createServer(app);
-
 app.listen(3000);
