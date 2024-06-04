@@ -6,20 +6,20 @@ const app = express();
 
 const adminRoutes = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
+const contactUsRoutes = require('./routes/contactUs')
+const successrRoutes = require('./routes/success')
+const errRoutes = require('./routes/error')
+
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/admin', adminRoutes)
 app.use(shopRoutes)
+app.use(contactUsRoutes)
+app.use(successrRoutes)
+app.use(errRoutes)
 
-app.post('/success', (req,res)=>{
-    res.sendFile(path.join(__dirname, 'views', 'success.html'))
-})
-
-app.use((req, res, next)=>{
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
-})
 
 
 
